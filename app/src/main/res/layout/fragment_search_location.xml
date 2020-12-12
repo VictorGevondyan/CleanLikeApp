@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="am.victor.clean_like_app.ui.search_location.SearchLocationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/BaseFragment.White"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/backButton"
+                android:layout_width="@dimen/_24dp"
+                android:layout_height="@dimen/_24dp"
+                android:layout_marginStart="@dimen/_16dp"
+                android:background="?actionBarItemBackground"
+                android:onClick="@{()-> model.onBackButtonClick()}"
+                android:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_left" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
+                style="@style/BaseText.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_24dp"
+                android:layout_marginTop="@dimen/_9dp"
+                android:text="@{model.textTitle}"
+                app:layout_constraintBottom_toTopOf="@id/locationET"
+                app:layout_constraintStart_toEndOf="@+id/backButton" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/locationET"
+                style="@style/SearchEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_24dp"
+                android:layout_marginBottom="@dimen/_9dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/roboto_medium"
+                android:hint="@string/enter_address"
+                android:singleLine="true"
+                android:text="@={model.searchText}"
+                android:textColorHint="@color/light_turquoise"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/clearBtn"
+                app:layout_constraintStart_toEndOf="@+id/backButton"
+                app:text_changed_listener="@{model::onLocationSearchChanged}" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/searchBtn"
+                android:layout_width="@dimen/_24dp"
+                android:layout_height="@dimen/_24dp"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:background="?actionBarItemBackground"
+                android:visibility="@{model.searchQuery.length() == 0}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_search"
+                tools:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/clearBtn"
+                android:layout_width="@dimen/_16dp"
+                android:layout_height="@dimen/_16dp"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:background="?actionBarItemBackground"
+                android:onClick="@{()->model.clearSearch()}"
+                android:tint="@color/light_turquoise"
+                android:visibility="@{model.searchQuery.length() > 0}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_delete" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintLayout">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/BaseText.DarkGray.13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_32dp"
+                android:text="@string/no_results_found"
+                android:textAlignment="center"
+                android:visibility="@{model.searchQuery.length() > 0 &amp;&amp; model.noResults}" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/BaseText.DarkGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_24dp"
+                android:layout_marginTop="@dimen/_32dp"
+                android:layout_marginEnd="@dimen/_24dp"
+                android:text="@string/please_enter_state"
+                android:textAlignment="center"
+                android:visibility="@{model.searchQuery.length() == 0}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/locationList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_24dp"
+                android:visibility="@{model.searchQuery.length() > 0 &amp;&amp; !model.noResults}" />
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

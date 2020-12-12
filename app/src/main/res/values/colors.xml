@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">@color/turquoise</color>
+
+    <color name="turquoise">#30889B</color>
+    <color name="black_high_emphasis">#000000</color>
+    <color name="black">#252525</color>
+    <color name="black12">#1F000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="dark_gray">#ACB0AF</color>
+    <color name="light_gray">#F0F0F0</color>
+    <color name="red">#C1352D</color>
+    <color name="green">#41DAAC</color>
+    <color name="light_turquoise">#7CBCCA</color>
+    <color name="transparent">#00000000</color>
+    <color name="loading_overlay">#A3282F38</color>
+
+</resources>

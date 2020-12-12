@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="name"
+            type="String" />
+    </data>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/BaseText.Black.15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/_20dp"
+        android:paddingTop="@dimen/_22dp"
+        android:paddingEnd="@dimen/_20dp"
+        android:paddingBottom="@dimen/_22dp"
+        android:text="@{name}"
+        tools:text="New York, NY" />
+
+</layout>

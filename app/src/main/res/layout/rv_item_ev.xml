@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="evDescription"
+            type="am.victor.clean_like_app.ui.setup_profile_customer.general_data.EvMakeInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_24dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutMake"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56dp"
+            android:background="@color/light_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_21dp"
+                android:src="@drawable/ic_point"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/evMake"
+                style="@style/BaseText.Black.13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_21dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:text="@string/ev_make"
+                app:layout_constraintStart_toEndOf="@+id/appCompatImageView2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/evMakeValue"
+                style="@style/BaseText.Black.16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_21dp"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:hint="@string/select"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{evDescription.make}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/appCompatImageView5"
+                app:layout_constraintStart_toEndOf="@+id/appCompatImageView2" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_25dp"
+                android:src="@drawable/ic_arrow_down"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutAddCustomEVMake"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutMake">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8dp"
+                android:src="@drawable/ic_add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/addMakeEditText"
+                style="@style/BaseText.Black.16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20dp"
+                android:background="@color/transparent"
+                android:hint="@string/ev_add_custom_male"
+                android:maxLines="1"
+                android:inputType="text"
+                app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/appCompatImageView3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1dp"
+                android:background="@color/light_gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutEvColor"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56dp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:background="@color/light_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutAddCustomEVMake">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_21dp"
+                android:src="@drawable/ic_point"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/evColor"
+                style="@style/BaseText.Black.13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_21dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:text="@string/ev_color"
+                app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/evColorValue"
+                style="@style/BaseText.Black.16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_21dp"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:ellipsize="end"
+                android:hint="@string/select"
+                android:singleLine="true"
+                android:text="@{evDescription.color}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/appCompatImageView6"
+                app:layout_constraintStart_toEndOf="@+id/appCompatImageView" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_25dp"
+                android:src="@drawable/ic_arrow_down"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutEvConnector"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56dp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:background="@color/light_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutEvColor">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_21dp"
+                android:src="@drawable/ic_point"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/connector"
+                style="@style/BaseText.Black.13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_21dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:text="@string/connector_types"
+                app:layout_constraintStart_toEndOf="@+id/appCompatImageView1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/evConnectorTypesValue"
+                style="@style/BaseText.Black.16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_21dp"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:ellipsize="end"
+                android:hint="@string/select"
+                android:singleLine="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/appCompatImageView4"
+                app:layout_constraintStart_toEndOf="@+id/appCompatImageView1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_25dp"
+                android:src="@drawable/ic_arrow_down"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/deleteButton"
+            style="@style/BaseButton.skip"
+            android:layout_width="@dimen/_104dp"
+            android:layout_height="@dimen/_32dp"
+            android:layout_marginTop="@dimen/_12dp"
+            android:layout_marginEnd="@dimen/_20dp"
+            android:text="@string/ev_delete"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutEvConnector" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

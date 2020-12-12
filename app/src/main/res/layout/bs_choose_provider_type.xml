@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/BaseText.DarkGray.13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginEnd="@dimen/_20dp"
+        android:text="@string/select_ev_charger_owner_type"
+        android:textAlignment="center" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4dp"
+        android:orientation="vertical"
+        app:divider="@drawable/divider_light_gray_horizontal"
+        app:showDividers="middle">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/individualButton"
+            style="@style/BaseText.Turquoise.16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_20dp"
+            android:text="@string/individual"
+            android:textAlignment="center" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/businessButton"
+            style="@style/BaseText.Turquoise.16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_20dp"
+            android:text="@string/business"
+            android:textAlignment="center" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cancelButton"
+            style="@style/BaseText.Black.16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_20dp"
+            android:text="@string/aeon_cancel"
+            android:textAlignment="center" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="my_images"
+        path="Android/data/am.victor.clean_like_app/files/Pictures" />
+</paths>

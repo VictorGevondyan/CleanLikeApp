@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:layout_marginBottom="@dimen/_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/createAccountButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_height"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="@dimen/_32dp"
+                    android:layout_height="@dimen/_32dp"
+                    android:layout_marginStart="@dimen/_16dp"
+                    android:layout_marginBottom="@dimen/_12dp"
+                    android:background="?actionBarItemBackground"
+                    android:onClick="@{()-> model.onBackButtonClick()}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_arrow_left" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView"
+                style="@style/BaseText.ProfileSetup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20dp"
+                android:text="@string/profile_setup_3_3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/verificationHelper"
+                style="@style/BaseText.Black.32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_48dp"
+                android:text="@string/verification_info_helper"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageViewAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_32dp"
+                android:src="@drawable/ic_address_verification"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/verificationHelper" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextViewAddressVerification"
+                style="@style/BaseText.Black.24"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:fontFamily="@font/roboto_medium"
+                android:layout_marginTop="@dimen/_40dp"
+                android:text="@string/address_verification"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatImageViewAddress" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/AddressVerificationHelper"
+                style="@style/BaseText.Black.14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20dp"
+                android:layout_marginTop="@dimen/_16dp"
+                android:layout_marginEnd="@dimen/_20dp"
+                android:text="@string/address_verification_helper_one"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextViewAddressVerification" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView4"
+                style="@style/BaseText.DarkGray.SanSerif.13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20dp"
+                android:layout_marginTop="@dimen/_24dp"
+                android:layout_marginEnd="@dimen/_20dp"
+                android:gravity="center"
+                android:text="@string/address_verification_helper_two"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/AddressVerificationHelper" />
+
+            <FrameLayout
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1dp"
+                android:layout_marginTop="@dimen/_24dp"
+                android:background="@color/light_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView4" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/imageCreditCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_24dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_credit_card"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextViewCreditCard"
+                style="@style/BaseText.Black.24"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginTop="@dimen/_40dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/payment_verification"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageCreditCard" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/CreditCardHelper"
+                style="@style/BaseText.Black.14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20dp"
+                android:layout_marginTop="@dimen/_16dp"
+                android:layout_marginEnd="@dimen/_20dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/payment_verification_helper"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextViewCreditCard" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/BaseText.Green.13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_24dp"
+                android:text="@string/private_data_helper"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CreditCardHelper" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/createAccountButton"
+        style="@style/BaseButton.Primary.Middle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_72dp"
+        android:layout_marginEnd="@dimen/_72dp"
+        android:layout_marginBottom="@dimen/_24dp"
+        android:text="@string/verify_now"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/appCompatButton"
+        style="@style/BaseButton.Primary.Static"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_16dp"
+        android:text="@string/finish"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

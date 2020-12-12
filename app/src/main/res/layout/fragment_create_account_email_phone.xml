@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="am.victor.clean_like_app.ui.create_account_email_phone.CreateAccountEmailPhoneViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        style="@style/BaseFragment.White"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/backButton"
+                android:layout_width="@dimen/_32dp"
+                android:layout_height="@dimen/_32dp"
+                android:layout_marginStart="@dimen/_16dp"
+                android:layout_marginTop="@dimen/_16dp"
+                android:layout_marginBottom="@dimen/_12dp"
+                android:background="?actionBarItemBackground"
+                android:onClick="@{() -> model.onBackButtonClick()}"
+                app:srcCompat="@drawable/ic_arrow_left" />
+
+        </FrameLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/createAccountTV"
+                    style="@style/BaseText.Black.24.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:text="@string/create_account"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <FrameLayout
+                    android:id="@+id/firstDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1dp"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintTop_toBottomOf="@id/createAccountTV" />
+
+                <am.victor.clean_like_app.utils.views.RegularEditText
+                    android:id="@+id/emailRET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16dp"
+                    app:input_listener="@{model::onLoginFieldChanged}"
+                    app:layout_constraintTop_toBottomOf="@id/firstDivider" />
+
+                <am.victor.clean_like_app.utils.views.RegularEditText
+                    android:id="@+id/passwordRET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/emailRET"
+                    app:password_listener="@{model::onPasswordChanged}"
+                    app:ret_floating_hint="@string/password"
+                    app:ret_hint="@string/your_password"
+                    app:ret_input_type="password" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/orTV"
+                    style="@style/BaseText.Black.13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:text="@string/or"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/passwordRET" />
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_1dp"
+                    android:layout_marginEnd="@dimen/_12dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintBottom_toBottomOf="@id/orTV"
+                    app:layout_constraintEnd_toStartOf="@id/orTV"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/orTV" />
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_1dp"
+                    android:layout_marginStart="@dimen/_12dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintBottom_toBottomOf="@id/orTV"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/orTV"
+                    app:layout_constraintTop_toTopOf="@id/orTV" />
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/socialLoginFragmentContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:layout_marginBottom="@dimen/_16dp"
+                    app:layout_constraintTop_toBottomOf="@id/orTV" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/loginTV"
+                style="@style/BaseText.Turquoise.13"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20dp"
+                android:layout_marginEnd="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_12dp"
+                android:layout_weight="1"
+                android:onClick="@{() -> model.onLogInButtonClick()}"
+                android:paddingTop="@dimen/_8dp"
+                android:paddingBottom="@dimen/_8dp"
+                android:text="@string/underlined_login"
+                android:textAlignment="center" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/createAccountButton"
+                style="@style/BaseButton.Primary.Middle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginEnd="@dimen/_20dp"
+                android:layout_marginTop="@dimen/_12dp"
+                android:layout_marginBottom="@dimen/_20dp"
+                android:layout_weight="2.5"
+                android:enabled="@{model.createAccountButtonState}"
+                android:onClick="@{() -> model.onCreateAccountButtonClick()}"
+                android:text="@string/create_account" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

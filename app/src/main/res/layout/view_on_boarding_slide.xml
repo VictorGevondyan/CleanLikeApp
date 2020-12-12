@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/sliderIV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_24dp"
+        android:layout_marginBottom="@dimen/_16dp"
+        android:layout_weight="1"
+        android:scaleType="centerInside" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/sliderTitleTV"
+        style="@style/BaseText.Black.34"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20dp"
+        android:layout_marginEnd="@dimen/_20dp"
+        android:layout_marginBottom="@dimen/_20dp"
+        android:textAlignment="center"
+        tools:text="Get access to EV chargers anytime!" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/sliderDescriptionTV"
+        style="@style/BaseText.Black.13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20dp"
+        android:layout_marginEnd="@dimen/_20dp"
+        android:textAlignment="center"
+        tools:text="@string/no_matter_what_time_it_is_you_can_always_access_a_charger_at_your_favorite_locations" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

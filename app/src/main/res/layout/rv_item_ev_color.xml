@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="colorInfo"
+            type="am.victor.clean_like_app.data.network.models.ColorInfo" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_40dp">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/colorRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{colorInfo.chosen}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_28dp"
+            app:cardCornerRadius="@dimen/_5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/colorRb"
+            app:layout_constraintTop_toTopOf="parent">
+        <View
+            android:id="@+id/color"
+            android:layout_width="@dimen/_32dp"
+            android:layout_height="@dimen/_32dp"
+            android:background="#C1352D"
+ />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/colorName"
+            style="@style/BaseText.Black.16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_28dp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:text="@{colorInfo.name}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardViewColor"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

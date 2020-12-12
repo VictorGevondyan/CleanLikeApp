@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="kotlin.Pair" />
+
+        <import type="java.util.ArrayList" />
+
+        <variable
+            name="currency"
+            type="Pair&lt;Integer, ArrayList&lt;String&gt;&gt;" />
+
+        <variable
+            name="model"
+            type="am.victor.clean_like_app.ui.setup_profile_individual_provider.general_data.viewmodel.IPSetupGeneralDataViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/BaseFragment.White"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_32dp"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/_12dp"
+            app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/toolbar_height"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/backButton"
+                        android:layout_width="@dimen/_32dp"
+                        android:layout_height="@dimen/_32dp"
+                        android:layout_marginStart="@dimen/_16dp"
+                        android:layout_marginBottom="@dimen/_12dp"
+                        android:background="?actionBarItemBackground"
+                        android:onClick="@{()-> model.onBackButtonClick()}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_arrow_left" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/appCompatTextView"
+                    style="@style/BaseText.ProfileSetup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:text="@string/profile_setup_2_3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textHelper"
+                    style="@style/BaseText.Black.14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:text="@string/charger_text_helper"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+
+                <FrameLayout
+                    android:id="@+id/firstDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textHelper" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textTitle"
+                    style="@style/BaseText.Black.16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:text="@string/charger_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/firstDivider" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/appCompatTextView4"
+                    style="@style/BaseText.Black.14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:text="@string/charger_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPictures"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20dp"
+                    android:clipToPadding="true"
+                    android:paddingStart="@dimen/_20dp"
+                    android:paddingEnd="@dimen/_5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appCompatTextView4" />
+
+
+                <TextView
+                    android:id="@+id/textPictures"
+                    style="@style/BaseText.DarkGray.13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:text="@string/up_to_five_picture"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rvPictures" />
+
+                <FrameLayout
+                    android:id="@+id/secondDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textPictures" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/chargerLocation"
+                    style="@style/BaseText.Black.16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:text="@string/charger_location"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/secondDivider" />
+
+                <am.victor.clean_like_app.utils.views.RegularEditText
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_56dp"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/chargerLocation"
+                    app:ret_floating_hint="@string/address"
+                    app:ret_hint="@string/enter_address" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_56dp"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:background="@color/light_gray"
+                    android:onClick="@{()->model.onAddressFieldClick()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chargerLocation">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/appCompatImageViewAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:src="@drawable/ic_point"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/Address"
+                        style="@style/BaseText.Black.13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:layout_marginTop="@dimen/_8dp"
+                        android:text="@string/address"
+                        app:layout_constraintStart_toEndOf="@+id/appCompatImageViewAddress"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/AddressValue"
+                        style="@style/BaseText.Black.16"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_20dp"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:layout_marginEnd="@dimen/_16dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:background="@color/transparent"
+                        android:editable="false"
+                        android:ellipsize="end"
+                        android:hint="@string/enter_address"
+                        android:singleLine="true"
+                        android:text="@{model.address}"
+                        android:textColorHint="@color/dark_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/appCompatImageViewAddress" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutStreetAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_56dp"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/address">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/appCompatImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:src="@drawable/ic_point"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/streetAddress"
+                        style="@style/BaseText.Black.13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:layout_marginTop="@dimen/_8dp"
+                        android:text="@string/second_street_line"
+                        app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/streetAddressValue"
+                        style="@style/BaseText.Black.16"
+                        text_changed_listener="@{model::streetLineText}"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_20dp"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:layout_marginEnd="@dimen/_16dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:background="@color/transparent"
+                        android:hint="@string/enter_address"
+                        android:singleLine="true"
+                        android:textColorHint="@color/dark_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/appCompatImageView" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <FrameLayout
+                    android:id="@+id/tiredDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutStreetAddress" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/chargerInfo"
+                    style="@style/BaseText.Black.16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:text="@string/charger_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tiredDivider" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutEvCharger"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_56dp"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chargerInfo">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/appCompatImageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:src="@drawable/ic_point"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/chargingSpeed"
+                        style="@style/BaseText.Black.13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:layout_marginTop="@dimen/_8dp"
+                        android:text="@string/charging_speed"
+                        app:layout_constraintStart_toEndOf="@+id/appCompatImageView2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/evChargingSpeedValue"
+                        style="@style/BaseText.Black.16"
+                        text_changed_listener="@{model::chargingSpeedText}"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_20dp"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:background="@color/transparent"
+                        android:hint="@string/select"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textColorHint="@color/dark_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/chargingSpeedImageView"
+                        app:layout_constraintStart_toEndOf="@+id/appCompatImageView2" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/chargingSpeedImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_25dp"
+                        android:src="@drawable/ic_arrow_down"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutChargingInstruction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutEvCharger">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/appCompatImageView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:src="@drawable/ic_point"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/chargingInstruction"
+                        style="@style/BaseText.Black.13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:layout_marginTop="@dimen/_8dp"
+                        android:text="@string/charging_instruction"
+                        app:layout_constraintStart_toEndOf="@+id/appCompatImageView3"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/chargingInstructionValue"
+                        style="@style/BaseText.Black.16"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:layout_marginEnd="@dimen/_16dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:background="@color/transparent"
+                        android:hint="@string/charging_instruction_details_text"
+                        android:textColorHint="@color/dark_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/appCompatImageView3"
+                        app:layout_constraintTop_toBottomOf="@+id/chargingInstruction" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutEvConnector"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_56dp"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:background="@color/light_gray"
+                    android:onClick="@{()-> model.onConnectorFieldClick(model.connectorTypeListValue)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutChargingInstruction">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/appCompatImageView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:src="@drawable/ic_point"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/connector"
+                        style="@style/BaseText.Black.13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:layout_marginTop="@dimen/_8dp"
+                        android:text="@string/connector_types"
+                        app:layout_constraintStart_toEndOf="@+id/appCompatImageView1"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/evConnectorTypesValue"
+                        style="@style/BaseText.Black.16"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_21dp"
+                        android:layout_marginBottom="@dimen/_8dp"
+                        android:ellipsize="end"
+                        android:hint="@string/select"
+                        android:singleLine="true"
+                        android:text="@{model.connectorTypeValue}"
+                        android:textColorHint="@color/dark_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/appCompatImageView4"
+                        app:layout_constraintStart_toEndOf="@+id/appCompatImageView1" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/appCompatImageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_25dp"
+                        android:src="@drawable/ic_arrow_down"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton"
+            style="@style/BaseButton.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16dp"
+            android:enabled="@{model.continueButtonState}"
+            android:onClick="@{()->model.onContinueButtonClick()}"
+            android:text="@string/aeon_continue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

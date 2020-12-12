@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="am.victor.clean_like_app.ui.social_login.SocialLoginViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        style="@style/BaseFragment.White"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/_20dp"
+        android:paddingTop="@dimen/_16dp"
+        android:paddingEnd="@dimen/_20dp"
+        android:paddingBottom="@dimen/_16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_social_login_buttons"
+            android:onClick="@{() -> model.onGoogleLoginButtonClick()}"
+            android:padding="@dimen/_16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_24dp"
+                android:layout_height="@dimen/_24dp"
+                android:layout_marginEnd="@dimen/_8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/googleTV"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_google" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/googleTV"
+                style="@style/BaseText.Black.16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in_with_google"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8dp"
+            android:background="@drawable/rect_social_login_buttons"
+            android:onClick="@{() -> model.onFacebookLoginButtonClick()}"
+            android:padding="@dimen/_16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_24dp"
+                android:layout_height="@dimen/_24dp"
+                android:layout_marginEnd="@dimen/_8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/facebookTV"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_fb" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/facebookTV"
+                style="@style/BaseText.Black.16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in_with_facebook"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_24dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/BaseText.Turquoise.13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> model.onPrivacyPolicyButtonClick()}"
+                android:padding="@dimen/_8dp"
+                android:text="@string/underlined_privacy_policy" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/BaseText.Turquoise.13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> model.onTermsAndConditionsButtonClick()}"
+                android:padding="@dimen/_8dp"
+                android:text="@string/underlined_terms_and_conditions" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

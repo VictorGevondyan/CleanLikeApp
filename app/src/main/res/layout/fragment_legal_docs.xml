@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="am.victor.clean_like_app.ui.legal_docs.LegalDocsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/BaseFragment.White"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/backButton"
+            android:layout_width="@dimen/_32dp"
+            android:layout_height="@dimen/_32dp"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:background="?actionBarItemBackground"
+            android:onClick="@{() -> model.onBackButtonClick()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_left" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            style="@style/BaseText.Black.24.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_24dp"
+            android:text="@{model.screenTitleResourceID}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/backButton" />
+
+        <FrameLayout
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:background="@color/light_gray"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

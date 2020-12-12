@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="am.victor.clean_like_app.ui.setup_profile_customer.general_data.viewmodel.SetupGeneralDataViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/BaseFragment.White"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_32dp"
+            app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/toolbar_height"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/backButton"
+                        android:layout_width="@dimen/_32dp"
+                        android:layout_height="@dimen/_32dp"
+                        android:layout_marginStart="@dimen/_16dp"
+                        android:layout_marginBottom="@dimen/_12dp"
+                        android:background="?actionBarItemBackground"
+                        android:onClick="@{()-> model.onBackButtonClick()}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_arrow_left" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/skipButton"
+                        style="@style/BaseButton.skip"
+                        android:layout_width="@dimen/_104dp"
+                        android:layout_height="@dimen/_32dp"
+                        android:layout_marginEnd="@dimen/_16dp"
+                        android:onClick="@{()-> model.onSkipButtonClick()}"
+                        android:text="@string/skip"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/appCompatTextView"
+                    style="@style/BaseText.ProfileSetup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:text="@string/profile_setup_two"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+                <FrameLayout
+                    android:id="@+id/firstDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1dp"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:background="@color/light_gray"
+                    app:layout_constraintTop_toBottomOf="@id/appCompatTextView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/profileTitle"
+                    style="@style/BaseText.Black.16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:text="@string/ev_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/firstDivider" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/appCompatTextView3"
+                    style="@style/BaseText.Black.14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_12dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/ev_profile_text_helper"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profileTitle" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvEv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_16dp"
+                    android:layout_marginEnd="@dimen/_16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appCompatTextView3" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addEvButton"
+                    style="@style/BaseButton.AddEv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:onClick="@{()->model.addAnotherEv()}"
+                    android:text="@string/ev_add"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rvEv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton"
+            style="@style/BaseButton.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16dp"
+            android:text="@string/finish_setup"
+            android:enabled="@{model.finishSetupButtonState}"
+            android:onClick="@{()->model.onFinishSetupButtonClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

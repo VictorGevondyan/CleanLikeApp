@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<data>
+    <variable
+        name="chargerPhoto"
+        type="am.victor.clean_like_app.ui.setup_profile_individual_provider.ChargerPhoto" />
+</data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutPhoto"
+        android:layout_width="@dimen/_105dp"
+        android:layout_height="@dimen/_105dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="@dimen/_12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:image_source="@{chargerPhoto.photo}"
+                app:thumb_source="@{@drawable/ic_placeholder_add_photo}" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/buttonDeletePhoto"
+                android:layout_width="@dimen/_24dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/_4dp"
+                android:layout_marginEnd="@dimen/_4dp"
+                android:background="@drawable/ic_bg"
+                android:src="@drawable/ic_crear"
+                android:visibility="@{chargerPhoto.delete}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

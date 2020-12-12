@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="am.victor.clean_like_app.ui.confirmation.ConfirmationViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        style="@style/BaseFragment.White"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:background="?actionBarItemBackground"
+                    android:onClick="@{() -> model.onBackButtonClick()}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_arrow_left" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/titleDrawable"
+                    android:layout_width="@dimen/_65dp"
+                    android:layout_height="@dimen/_65dp"
+                    android:layout_marginTop="@dimen/_16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/backButton"
+                    app:srcCompat="@{model.titleDrawableResourceID}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title"
+                    style="@style/BaseText.Black.32"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:text="@{model.titleStringResourceID}"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@id/titleDrawable" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/description"
+                    style="@style/BaseText.Black.13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_24dp"
+                    android:layout_marginEnd="@dimen/_20dp"
+                    android:text="@string/enter_the_code_here"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@id/title" />
+
+                <am.victor.clean_like_app.utils.views.VerificationView
+                    android:id="@+id/verificationET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onTextChanged="@{(s, start, before, count) -> model.onVerificationCodeChanged(s)}"
+                    android:paddingStart="@dimen/_20dp"
+                    android:paddingEnd="@dimen/_20dp"
+                    android:text="@={model.verificationCode}"
+                    app:layout_constraintTop_toBottomOf="@id/description" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/errorTV"
+                style="@style/BaseText.White.13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:paddingStart="@dimen/_20dp"
+                android:paddingTop="@dimen/_16dp"
+                android:paddingEnd="@dimen/_20dp"
+                android:paddingBottom="@dimen/_16dp"
+                android:text="@{model.verificationError}"
+                android:textAlignment="center"
+                android:visibility="@{model.verificationErrorVisibility}"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Entered code is incorrect or expired" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/resendBtn"
+                style="@style/BaseButton.Secondary.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_24dp"
+                android:onClick="@{() -> model.onResendButtonClick()}"
+                android:text="@string/resend_code"
+                app:confirmation_resend_button_state="@{model.resendButtonState}"
+                app:confirmation_resend_timeout="@{model.resendTimeout}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/errorTV" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

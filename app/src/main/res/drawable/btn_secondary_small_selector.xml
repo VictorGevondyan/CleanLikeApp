@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/btn_secondary_small_enabled_pressed" android:state_enabled="true" android:state_pressed="true" />
+    <item android:drawable="@drawable/btn_secondary_small_enabled" android:state_enabled="true" />
+    <item android:drawable="@drawable/btn_primary_small_disabled" />
+</selector>

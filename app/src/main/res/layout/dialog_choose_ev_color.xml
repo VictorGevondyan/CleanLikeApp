@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="am.victor.clean_like_app.ui.setup_profile_customer.general_data.viewmodel.ChooseEVColorDialogViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/colors_dialog_title_tv"
+            style="@style/BaseText.Black.24.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_24dp"
+            android:text="@string/ev_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/colors_rv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_344dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginEnd="@dimen/_16dp"
+            android:clipToPadding="true"
+            android:paddingBottom="@dimen/_12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/colors_dialog_title_tv" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/cancel_btn"
+                style="@style/BaseButton.Dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8dp"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:onClick="@{() -> model.onCancelButtonClick()}"
+                android:text="@string/aeon_cancel"
+                android:textAllCaps="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/confirm_btn"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/confirm_btn"
+                style="@style/BaseButton.Dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8dp"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:onClick="@{() -> model.onConfirmButtonClick()}"
+                android:text="@string/confirm"
+                android:textAllCaps="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

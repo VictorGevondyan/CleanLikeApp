@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_16dp"
+    tools:context=".ui.main.MainActivity">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/backButton"
+        android:layout_width="@dimen/_32dp"
+        android:layout_height="@dimen/_32dp"
+        android:background="?actionBarItemBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_left" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/BaseText.Black.16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_24dp"
+        android:layout_marginTop="@dimen/_16dp"
+        android:layout_marginEnd="@dimen/_24dp"
+        android:text="@string/this_demonstrates_design_styles_applied_for_android_application_it_will_be_removed_later"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/backButton" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <am.victor.clean_like_app.utils.views.RegularEditText
+            android:id="@+id/emailRET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:ret_hint="Your password"
+            app:ret_floating_hint="Password"
+            app:ret_input_type="password" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/continueButton"
+            style="@style/BaseButton.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16dp"
+            android:text="@string/aeon_continue" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/BaseButton.Primary.Middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16dp"
+            android:text="@string/become_a_member" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/BaseButton.Primary.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16dp"
+            android:text="@string/directions" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/BaseButton.Secondary.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16dp"
+            android:text="@string/directions" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/BaseButton.Tertiary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16dp"
+            android:text="@string/clear" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

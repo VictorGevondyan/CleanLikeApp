@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="am.victor.clean_like_app.ui.setup_profile_individual_provider.general_data.viewmodel.IPSetupGeneralDataViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded_top_white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/connectorType"
+            style="@style/BaseText.BlackHighEmphasis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_24dp"
+            android:text="@string/connector_types"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="28dp"
+            android:button="@drawable/checkbox_connector_selector"
+            android:checked="@{model.isChecked}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            on_checked_change_listener="@{model::onCheckedChanged}"/>
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/light_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/connectorType" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250dp"
+            app:layout_constraintBottom_toTopOf="@+id/layoutAddCustomEVMake"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutAddCustomEVMake"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_24dp"
+                android:onClick="@{()->model.addData()}"
+                android:src="@drawable/ic_add"
+                android:visibility="@{model.inputConnectorName.length() == 0}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_20dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_24dp"
+                android:checked="@{model.isCheckedAddConnector}"
+                android:visibility="@{model.inputConnectorName.length() > 0}"
+                android:button="@drawable/checkbox_connector_item_selector"
+                android:theme="@style/CheckboxStyle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/appCompatEditText"
+                style="@style/BaseText.Black.16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_56dp"
+                android:background="@color/transparent"
+                android:hint="@string/add_type"
+                android:inputType="text"
+                android:maxLines="1"
+                android:imeOptions="actionDone"
+                app:customOnEditorActionListener = "@{model::addData}"
+                android:text="@={model.inputConnectorName}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/itemDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_28dp"
+                android:src="@drawable/ic_delete"
+                android:onClick="@{()->model.clearConnectorText()}"
+                android:visibility="@{model.inputConnectorName.length() > 0}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

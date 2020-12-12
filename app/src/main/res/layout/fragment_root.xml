@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="am.victor.clean_like_app.ui.root.RootViewModel" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer"
+        style="@style/BaseFragment.White"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/menuButton"
+                android:layout_width="@dimen/_32dp"
+                android:layout_height="@dimen/_32dp"
+                android:layout_marginTop="@dimen/_32dp"
+                android:elevation="@dimen/_4dp"
+                android:outlineProvider="none"
+                android:background="?actionBarItemBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_menu" />
+
+            <com.mapbox.mapboxsdk.maps.MapView
+                android:id="@+id/mapView"
+                style="@style/MapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="0dp"
+                app:mapbox_renderTextureMode="true"
+                app:mapbox_uiCompassMarginBottom="55dp"
+                app:mapbox_uiCompassMarginLeft="15dp"
+                app:mapbox_uiCompassMarginRight="17dp"
+                app:mapbox_uiCompassMarginTop="15dp" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/buttonLocate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:layout_marginBottom="@dimen/_16dp"
+                android:enabled="false"
+                android:background="@drawable/ic_locate_me"
+                android:elevation="@dimen/_8dp"
+                android:onClick="@{() -> model.onLocateMeButtonClick()}"
+                android:outlineProvider="background"
+                app:layout_constraintBottom_toTopOf="@id/linearLayoutCompat"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/buttonRefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16dp"
+                android:layout_marginBottom="@dimen/_16dp"
+                android:background="@drawable/ic_refresh"
+                android:elevation="@dimen/_8dp"
+                android:outlineProvider="background"
+                app:layout_constraintBottom_toTopOf="@id/linearLayoutCompat"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_rounded_top_turquoise">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/searchImage"
+                        android:layout_width="@dimen/_20dp"
+                        android:layout_height="@dimen/_20dp"
+                        android:layout_marginStart="@dimen/_20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_charge_search" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/appCompatTextView5"
+                        style="@style/BaseText.White.13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20dp"
+                        android:layout_marginTop="@dimen/_16dp"
+                        android:text="Enter location"
+                        app:layout_constraintStart_toEndOf="@id/searchImage"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20dp"
+                        android:layout_marginBottom="@dimen/_16dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/light_turquoise"
+                        android:background="@android:color/transparent"
+                        android:hint="Where do you want to charge?"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/searchImage"
+                        app:layout_constraintTop_toBottomOf="@id/appCompatTextView5" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/black">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/filterToggle"
+                        android:layout_width="@dimen/_20dp"
+                        android:layout_height="@dimen/_20dp"
+                        android:layout_marginStart="@dimen/_20dp"
+                        android:layout_marginTop="@dimen/_24dp"
+                        android:layout_marginBottom="@dimen/_32dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_arrow_down_white" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/filterText"
+                        style="@style/BaseText.White.13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20dp"
+                        android:text="EV details and date/time filters"
+                        app:layout_constraintBottom_toBottomOf="@id/filterToggle"
+                        app:layout_constraintStart_toEndOf="@id/filterToggle"
+                        app:layout_constraintTop_toTopOf="@id/filterToggle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigationView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/white">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/profileIV"
+                    android:layout_width="@dimen/_72dp"
+                    android:layout_height="@dimen/_72dp"
+                    android:layout_marginTop="@dimen/_40dp"
+                    app:circle="@{true}"
+                    app:image_source="@{model.user.avatar.thumbnail}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholder="@{@drawable/ic_placeholder_no_photo}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/profileNameTV"
+                    style="@style/BaseText.Black.24.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16dp"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:layout_marginEnd="@dimen/_16dp"
+                    android:text="@{model.user.profileInfo.provideName()}"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@id/profileIV"
+                    tools:text="James Connor" />
+
+                <am.victor.clean_like_app.utils.views.CO2TextView
+                    android:id="@+id/co2SavedTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:paddingBottom="@dimen/_4dp"
+                    android:text="5"
+                    app:layout_constraintTop_toBottomOf="@id/profileNameTV" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ratingsLL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/co2SavedTV">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8dp"
+                        android:gravity="center_vertical"
+                        android:visibility="@{model.user.customerRegistered}">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_12dp"
+                            android:layout_height="@dimen/_12dp"
+                            app:srcCompat="@drawable/ic_customer_filled" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/BaseText.Black.16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_4dp"
+                            android:text="5.0" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8dp"
+                        android:gravity="center_vertical"
+                        android:visibility="@{model.user.providerRegistered}">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_12dp"
+                            android:layout_height="@dimen/_12dp"
+                            app:srcCompat="@drawable/ic_star_filled" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/BaseText.Black.16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_4dp"
+                            android:text="4.0" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/rootScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/appCompatButton2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ratingsLL">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/buttonsLL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/bookingHistoryButton"
+                            style="@style/DrawerMenuItem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{() -> model.onBookingHistoryButtonClick()}">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/BaseText.Black.16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/booking_history" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/DrawerMenuItem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{() -> model.onRequestsHistoryButtonClick()}">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/BaseText.Black.16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/requests_history" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/DrawerMenuItem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{() -> model.onChatsButtonClick()}">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/BaseText.Black.16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/chats" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/DrawerMenuItem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{() -> model.onNotificationsButtonClick()}">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/BaseText.Black.16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/notifications" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/DrawerMenuItem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{() -> model.onSettingsButtonClick()}">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/BaseText.Black.16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/settings" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/DrawerMenuItem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/BaseText.Black.16"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/availability" />
+
+                            <com.google.android.material.switchmaterial.SwitchMaterial
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/DrawerMenuItem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{() -> model.onAccountVerificationButtonClick()}">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/BaseText.Black.16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/account_verification" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.core.widget.NestedScrollView>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/appCompatButton2"
+                    style="@style/BaseButton.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_24dp"
+                    android:text="@string/contact_support"
+                    app:flow_verticalBias="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rootScrollView"
+                    tools:layout_editor_absoluteX="24dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.navigation.NavigationView>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>
