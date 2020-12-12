@@ -12,8 +12,8 @@ apply plugin: 'com.google.firebase.crashlytics'
  * @return more or less proper path to keystore file
  */
 static String getKeystorePath() {
-    if (Os.isFamily(Os.FAMILY_WINDOWS)) return "c:/Keystore/aeoncharge.jks"
-    if (Os.isFamily(Os.FAMILY_MAC)) return "${System.properties['user.home']}/Keystore/aeoncharge.jks"
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) return "c:/Keystore/victor.jks"
+    if (Os.isFamily(Os.FAMILY_MAC)) return "${System.properties['user.home']}/Keystore/victor.jks"
     return System.getenv("AEON_CHARGE_KEYSTORE_PATH")
 }
 
@@ -36,8 +36,8 @@ android {
         versionName computeVersionName()
 
         buildConfigField "String", "GOOGLE_API_KEY", "\"AIzaSyCaUNiiMHzr9w5saEjepFvGB5wFZk_Ll_E\""
-        buildConfigField("String", "BASE_URL", "\"https://api.staging.aeoncharge.com/api/\"")
-        buildConfigField("String", "API_KEY", "\"aeoncharge2020\"")
+        buildConfigField("String", "BASE_URL", "\"https://api.staging.victor.com/api/\"")
+        buildConfigField("String", "API_KEY", "\"victor2020\"")
         buildConfigField("String", "GOOGLE_SERVER_CLIENT_SECRET", "\"wwbpuqwOmnYXSrN198bgYNNo\"")
         buildConfigField("String", "GOOGLE_SERVER_CLIENT_ID", "\"665969741972-n78itfbokvaklgdog429hf6842ktpt8r.apps.googleusercontent.com\"")
         buildConfigField("String", "GOOGLE_BASE_URL", "\"https://www.googleapis.com\"")

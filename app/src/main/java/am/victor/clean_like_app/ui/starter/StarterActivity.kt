@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import am.victor.clean_like_app.AeonChargeApplication
+import am.victor.clean_like_app.victorApplication
 import am.victor.clean_like_app.R
 import am.victor.clean_like_app.di.component.ActivityComponent
 import am.victor.clean_like_app.di.module.ActivityModule
@@ -34,7 +34,7 @@ class StarterActivity : AppCompatActivity(), NavigationActivity {
         setContentView(R.layout.activity_starter)
 
         activityComponent = _root_ide_package_.am.victor.clean_like_app.di.component.DaggerActivityComponent.builder()
-            .applicationComponent((application as AeonChargeApplication).applicationComponent)
+            .applicationComponent((application as victorApplication).applicationComponent)
             .activityModule(ActivityModule(this))
             .build()
 

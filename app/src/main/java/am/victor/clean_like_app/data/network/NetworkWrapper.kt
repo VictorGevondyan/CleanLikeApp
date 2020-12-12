@@ -2,7 +2,7 @@ package am.victor.clean_like_app.data.network
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import am.victor.clean_like_app.AeonChargeApplication
+import am.victor.clean_like_app.victorApplication
 import am.victor.clean_like_app.data.local.PreferenceHelper
 import am.victor.clean_like_app.data.network.type_adapters.VerificationTypeDeserializer
 import am.victor.clean_like_app.data.network.type_adapters.VerificationTypeSerializer
@@ -47,7 +47,7 @@ object NetworkWrapper {
     private fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(provideHeadersInterceptor())
-            .addInterceptor(ChuckInterceptor(AeonChargeApplication.getContext()))
+            .addInterceptor(ChuckInterceptor(victorApplication.getContext()))
             .connectTimeout(60 * 1000, TimeUnit.MILLISECONDS)
             .writeTimeout(60 * 1000, TimeUnit.MILLISECONDS)
             .readTimeout(60 * 1000, TimeUnit.MILLISECONDS)
